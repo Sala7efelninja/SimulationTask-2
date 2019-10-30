@@ -183,7 +183,7 @@ namespace NewspaperSellerModels
                 simCase.NewsDayType = getDayType(simCase.RandomNewsDayType);
                 simCase.RandomDemand = random.Next(1, 100);
                 simCase.Demand = getDemand(simCase.NewsDayType, simCase.RandomDemand);
-                simCase.DailyCost = CalcDaiyCost(simCase.Demand);
+                simCase.DailyCost = CalcDaiyCost();
                 simCase.SalesProfit=calcDailyProfit(simCase.Demand);
                 simCase.LostProfit = calcLostProfit(simCase.Demand);
                 simCase.ScrapProfit = calcSalvageFromSaleOfScrap(simCase.Demand);
@@ -305,7 +305,7 @@ namespace NewspaperSellerModels
                 demand = NumOfNewspapers;
             return SellingPrice * demand;
         }
-        decimal CalcDaiyCost(int demand)
+        decimal CalcDaiyCost()
         {
             return PurchasePrice * NumOfNewspapers;
         }
